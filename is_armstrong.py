@@ -18,16 +18,17 @@ Explanation:
 123 is a 3-digit number, and 123 != 1^3 + 2^3 + 3^3 = 36.
  """
 
+
 class Solution:
     def isArmstrongv1(self, N):
-        sum_total = sum([ int(x) ** len(str(N)) for x in str(N)])
+        sum_total = sum([int(x) ** len(str(N)) for x in str(N)])
         if sum_total == N:
             return True
         else:
             return False
 
     def isArmstrongv2(self, N):
-        sum_total = sum(map(lambda x : int(x) ** len(str(N)), list(str(N))))
+        sum_total = sum(map(lambda x: int(x) ** len(str(N)), list(str(N))))
         if sum_total == N:
             return True
         else:
