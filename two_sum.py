@@ -11,19 +11,12 @@ return [0, 1].
  """
 
 class Solution:
-
     def twoSum(self, nums, target):
-
-        number_lookup = {}
-        output=[]
-
-        for item_index, item in enumerate(nums,start=0):
-            number_lookup[item] = item_index
-
-        for item, item_index in number_lookup.items():
-            remainder = target - item
-            if remainder in number_lookup.keys():
-                output.append(item)
-                output.append(number_lookup[remainder])
-                break
+        lookup_value = {index_v : index_k for (index_k, index_v) in enumerate(nums)}
+        for item_index, item in enumerate(nums):
+            diff = target - item
+            if diff in lookup_value.keys():        
+                if not item_index == lookup_value[diff]:
+                    return sorted([item_index, lookup_value[diff]])
+        return []
         
